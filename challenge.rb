@@ -2,12 +2,23 @@
 # TODO: Implement the method below.
 
 def group_by_prefix(words, n)
-  #Valisação de tipos e valores
+  # Valisação de tipos e valores
   raise ArgumentError, "words deve ser um Array" unless words.is_a?(Array)
   raise ArgumentError, "n deve ser um Interiro maior que zero" unless n.is_a?(Integer) && n > 0
 
-  #Iniciar o Hash para criar os arrays
+  # Iniciar o Hash para criar os arrays
   groups = Hash.new { |h, k| h[k] = []}
+
+  words.each do |word|
+    # Apenas palavras com pelo menos n caracteres
+    next unless word.is_a?(String) && word.length >= n
+
+    # Deixar em minusculo para chave hash
+    prefix = word[0, n].downcase
+
+    # Guardar palavra original
+    groups[prefix] << word
+  end
 
   #Retorna o hash
   groups.values
