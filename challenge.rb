@@ -1,6 +1,18 @@
 # ----------------- Implementation (TODO) -----------------
-# Teste de conexão com o Github
 # TODO: Implement the method below.
+
+def group_by_prefix(words, n)
+  #Valisação de tipos e valores
+  raise ArgumentError, "words deve ser um Array" unless words.is_a?(Array)
+  raise ArgumentError, "n deve ser um Interiro maior que zero" unless n.is_a?(Integer) && n > 0
+
+  #Iniciar o Hash para criar os arrays
+  groups = Hash.new { |h, k| h[k] = []}
+
+  #Retorna o hash
+  groups.values
+end
+
 # ----------------- Color helpers -----------------
 def green(t)  = "\e[32m#{t}\e[0m"
 def red(t)    = "\e[31m#{t}\e[0m"
